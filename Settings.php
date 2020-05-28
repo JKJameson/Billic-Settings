@@ -37,7 +37,6 @@ class Settings {
 					if (empty($billic->errors)) {
 						set_config('billic_domain', $_POST['billic_domain']);
 						set_config('billic_ssl', $_POST['billic_ssl']);
-						set_config('billic_force_ssl', $_POST['billic_force_ssl']);
 						set_config('billic_force_www', $_POST['billic_force_www']);
 						set_config('billic_session_timeout', $_POST['billic_session_timeout']);
 						set_config('billic_lock_session_ip', $_POST['billic_lock_session_ip']);
@@ -77,7 +76,6 @@ class Settings {
 				echo '<tr><th colspan="2">Website Settings</th></tr>';
 				echo '<tr><td width="175">Domain</td><td><input type="text" class="form-control" name="billic_domain" value="' . safe(get_config('billic_domain')) . '"><br>The (sub)domain name of your installation. For example: billic.yourcompany.com</td></tr>';
 				echo '<tr><td>SSL</td><td><input type="checkbox" name="billic_ssl" value="1"' . (get_config('billic_ssl') == 1 ? ' checked' : '') . '> Enable SSL Connections?</td></tr>';
-				echo '<tr><td>Force SSL</td><td><input type="checkbox" name="billic_force_ssl" value="1"' . (get_config('billic_force_ssl') == 1 ? ' checked' : '') . '> Force SSL Connections?</td></tr>';
 				$domain_without_www = $_SERVER['SERVER_NAME'];
 				if (substr($domain_without_www, 0, 4) == 'www.') {
 					$domain_without_www = substr($domain_without_www, 4);
